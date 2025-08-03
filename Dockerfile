@@ -1,14 +1,17 @@
-# Use Python 3.10 base image
+# 🔧 Use Python 3.10 specifically
 FROM python:3.10-slim
 
-# Set working directory
+# 🛠 Set working directory
 WORKDIR /app
 
-# Copy all files into the container
-COPY . .
+# 📦 Copy dependencies first (cache optimization)
+COPY requirements.txt .
 
-# Install dependencies
+# 📥 Install Python packages
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Run the bot
+# 📁 Copy all project files
+COPY . .
+
+# 🚀 Run your bot
 CMD ["python", "main.py"]
