@@ -1,3 +1,4 @@
 pyrogram==2.0.106
 motor==2.5.1
 pymongo==3.12.3
+pymongo[srv]
